@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'bulut.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'bulutproje',
+        'NAME': 'postgres',
         'USER': 'usrfurkan@FurkanOzerPostgres',
         'PASSWORD': 'Furkan123*',
         'HOST': 'furkanozerpostgres.postgres.database.azure.com',
