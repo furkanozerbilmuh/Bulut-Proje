@@ -1,0 +1,49 @@
+{% extends 'exambase.html' %}
+
+{% block body %}
+<div class="login">
+    <h1>Soru {{ques_no}}</h1>
+
+    <form action="" method="POST">{% csrf_token %}
+
+        <label>
+            <i class="fas fa-book-open"></i>
+        </label>
+        {{form.question}}
+        <label>
+            <i class="fas fa-angle-right"></i>
+        </label>
+        {{form.A_choice}}
+        <label>
+            <i class="fas fa-angle-right"></i>
+        </label>
+        {{form.B_choice}}
+        <label>
+            <i class="fas fa-angle-right"></i>
+        </label>
+        {{form.C_choice}}
+        <label>
+            <i class="fas fa-angle-right"></i>
+        </label>
+        {{form.D_choice}}
+
+        <label>
+            <i class="fas fa-angle-right"></i>
+        </label>
+        {{form.E_choice}}
+
+
+        {{form.trueChoice}}
+
+        <input type="submit" name="yenisoru" value="Soru Ekle">
+        <a href="/Egitmen">
+            <input type="button" name="submit" value="Tamamla">
+        </a>
+
+
+    </form>
+
+</div>
+
+{% endblock %}
+

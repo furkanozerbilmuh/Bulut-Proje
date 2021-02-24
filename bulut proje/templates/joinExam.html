@@ -1,0 +1,37 @@
+{% extends 'exambase.html' %}
+{% block body %}
+
+    <div class="login">
+        <h1>Soru {{ques_no}}</h1>
+
+        <form style="padding-top: 0px" action="" method="POST">{% csrf_token %}
+
+            Soru : {{soru}}
+            <br>
+            A : {{A}}
+            <br>
+            B : {{B}}
+            <br>
+            C : {{C}}
+            <br>
+            D : {{D}}
+            <br>
+            E : {{E}}
+            <br>
+            <br>
+            {{form.answer}}
+
+            {% if ques_no == soru_sayisi %}
+
+                <input type="submit" name="yenisoru" value="Sınavı Tamamla">
+
+            {% else %}
+            <input type="submit" name="yenisoru" value="Sonraki Soru">
+            {% endif %}
+
+
+        </form>
+
+    </div>
+
+{% endblock %}

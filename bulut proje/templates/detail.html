@@ -1,0 +1,46 @@
+{% extends 'Egitmen.html' %}
+{% block body %}
+<br>
+    <h2> Sınav Adı : {{exam_name}}</h2>
+<br>
+{% for soru in sorular %}
+    <table border="1" width="50%">
+
+        <tbody>
+
+            <tr>
+                <th>Soru {{soru.ques_no}}</th>
+                <th>{{soru.question}}</th>
+            </tr>
+            <tr>
+                <th>A</th>
+                <th>{{soru.A_choice}}</th>
+            </tr>
+            <tr>
+                <th>B</th>
+                <th>{{soru.B_choice}}</th>
+            </tr>
+            <tr>
+                <th>C</th>
+                <th>{{soru.C_choice}}</th>
+            </tr>
+            <tr>
+                <th>D</th>
+                <th>{{soru.D_choice}}</th>
+            </tr>
+            <tr>
+                <th>E</th>
+                <th>{{soru.E_choice}}</th>
+            </tr>
+            <tr>
+                <th>Doğru Cevap</th>
+                <th>{{soru.trueChoice}}</th>
+            </tr>
+
+
+        </tbody>
+
+    </table>
+<br><br>
+{% endfor %}
+{% endblock %}

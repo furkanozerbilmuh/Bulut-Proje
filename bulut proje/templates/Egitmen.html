@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Flex Uygulaması</title>
+	<style>
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		table {
+			border-collapse: collapse;
+		}
+		th{
+			width: 318px;
+			height: 21px;
+
+		}
+		a{
+			width: 90%;
+			padding: 0px;
+		}
+		.login input[type="submit"],.login input[type="button"]{
+			width: 10%;
+			padding: 15px;
+			margin-top: 20px;
+			background-color: #ffa31a;
+			border: 0;
+			cursor: pointer;
+			font-weight: bold;
+			color: #ffffff;
+			transition: background-color 0.2s;
+		}
+		.login input[type="submit"]:hover ,.login input[type="button"]:hover{
+			background-color: #2868c7;
+			transition: background-color 0.2s;
+		}
+		.header {
+			padding: 30px;
+			text-align: center;
+			background-color: #ffa31a;
+			color: #fff;
+		}
+		
+		.navbar {
+			display: flex;
+			background-color: #333;
+            position: relative;
+		}
+        
+		
+		.navbar a {
+			color: #fff;
+			padding: 13px 30px;
+			text-decoration: none;
+			text-align: center;
+		}
+        .navbar form input[type="text"], .navbar form input[type="button"] {
+          
+            width: 17%;
+            padding: 12px 25px;
+            margin: 8px 1px;
+            box-sizing: border-box;
+            text-align:left;
+            margin-left: 11px;
+        }
+        
+	
+		.navbar a:hover {
+			background-color: #ddd;
+			color: #000;
+		}
+		
+		#main {
+			display: flex;
+		}
+		
+		
+		#sidebar {
+			background-color: #f1f1f1;
+			flex: 25%;
+			padding: 20px;
+			order: 1;
+		}
+		
+		.box {
+			margin-bottom: 20px;
+		}
+		.box img{
+            width: 100%;
+        }
+		p {
+			margin: 10px 0;
+		}
+		
+        #b{
+            visibility: hidden;
+        }
+		#content {
+			flex: 75%;
+			padding: 20px;
+		}
+        
+		
+		.ph {
+			background-color: #ddd;
+			width: 100%;
+			padding: 20px;
+			margin-top: 10px;
+		}
+        .phh{
+			background-color: #ddd;
+			width: 100%;
+			padding: 20px;
+			margin-top: 10px;
+
+		}
+        
+        #uyeol {
+          background-color: aqua;
+          border: none;
+          color: black;
+ 
+          
+          
+}
+
+        #instagram{
+            width: 100%;
+        }
+
+		#footer {
+			background-color: #ddd;
+			padding: 20px;
+			text-align: center;				
+		}
+		
+		
+		@media screen and (max-width: 700px) {
+			#main, .navbar {
+				flex-direction: column;
+			}
+			#sidebar {
+				order: -1;
+			}
+		}
+
+
+
+
+	</style>
+</head>
+<body>
+
+	<div class="header">
+		<h1>Cloud based electronic examination system</h1>
+		<p style=" font-size: 20px;">
+			Eğitmen Arayüzü  <p align="right">Hoşgeldin {{ fname}} {{lname }}.</p>
+
+		</p>
+
+	</div>
+	{% block body %}
+		<br><br><br>
+		<h2 m>----> Bekleyen Sınavlar</h2>
+		<br><br>
+	<div>
+		<table border="1" width="50%">
+			<thead>
+
+				<tr>
+					<th>Sınav Adı</th>
+					<th>Sınav Başlangıç Tarihi</th>
+					<th>Sınav Bitirş Tarihi</th>
+				</tr>
+			</thead>
+			<tbody>
+
+					{% for sinav in gelecek_sinavlar %}
+					<tr>
+						<th>{{sinav.exam_name}} </th>
+						<th>{{sinav.st_date}} </th>
+						<th>{{sinav.end_date}} </th>
+					</tr>
+					{% endfor %}
+			</tbody>
+
+		</table>
+
+	</div>
+	<br><br><br><hr><br><br><br>
+	<h2 m>----> Sonuçlanmış Sınavlar</h2>
+	<div>
+		<br><br><br>
+		<table border="1" width="50%">
+			<thead>
+
+			<tr>
+				<th>Sınav Adı</th>
+				<th>Sınav Başlangıç Tarihi</th>
+				<th>Sınav Bitiş Tarihi</th>
+			</tr>
+			</thead>
+			<tbody>
+
+
+			{% for sinav in gecmis_sinavlar %}
+					<tr>
+						<th><a href="Egitmen/detail/{{sinav.id}}">{{sinav.exam_name}}</a> </th>
+						<th>{{sinav.st_date}} </th>
+						<th>{{sinav.end_date}} </th>
+					</tr>
+
+			{% endfor %}
+			</tbody>
+
+		</table>
+
+	</div >
+	<br><br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div class="login">
+		<a href="/Egitmen/createExam">
+			<input type="button" name="submit" value="Sınav Oluştur">
+		</a>
+	</div>
+	{% endblock %}
+</body>
+</html>
