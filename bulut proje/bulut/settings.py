@@ -80,9 +80,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'bulutproje',
-        'USER': 'postgres',
-        'PASSWORD': '133244',
-        'HOST': '127.0.0.1',
+        'USER': 'usrfurkan@FurkanOzerPostgres',
+        'PASSWORD': 'Furkan123*',
+        'HOST': 'furkanozerpostgres.postgres.database.azure.com',
         'PORT': '5432',
     }
 }
